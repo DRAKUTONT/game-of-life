@@ -1,8 +1,8 @@
 import pygame
 from pygame.locals import *
 import random
-import time
 from copy import deepcopy
+from Cells import Cell
 
 grid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -38,6 +38,11 @@ class GameOfLife:
 
         self.generation = 0
 
+        self.grid = [
+            [Cell(surface=self.screen, coord=(j * self.cell_size, i * self.cell_size), life='r', size=self.cell_size)
+             for j in range(self.cell_width)] for i in
+            range(self.cell_height)]
+
     def draw_lines(self) -> None:
         for x in range(0, self.width, self.cell_size):
             pygame.draw.line(self.screen, pygame.Color('black'),
@@ -45,36 +50,36 @@ class GameOfLife:
         for y in range(0, self.height, self.cell_size):
             pygame.draw.line(self.screen, pygame.Color('black'), (0, y), (self.width, y))
 
-    def create_grid(self):
-        # self.grid = grid
-        self.grid = [[random.choice((0, 0, 0, 0, 0, 0, 0, 0, 1)) for _ in range(self.cell_height)] for _ in range(self.cell_height)]
-
-    # def click(self):
-    #     cl = pygame.mouse.get_pressed()
+    def click(self):
+        mouse = pygame.mouse.get_pos()
+        click = pygame.mouse.get_pressed()
+        for i, item in enumerate(self.grid):
+            for j, jtem in enumerate(item):
+                jtem.click(mouse, click)
 
     def get_neighbours(self, coord):
         system = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
         count = 0
         for i in system:
-            if self.new_greed[(coord[0] + i[0]) % len(self.new_greed)][(coord[1] + i[1]) % len(self.new_greed[0])]:
+            if self.new_greed[(coord[0] + i[0]) % len(self.new_greed)][(coord[1] + i[1]) % len(self.new_greed[0])].is_alive():
                 count += 1
         return count
 
     def get_next_generation(self):
-        self.new_greed = deepcopy(self.grid)
+        self.new_greed = [[j.get_copy() for j in item] for item in self.grid]
 
         for y, item in enumerate(self.new_greed):
             for x, jtem in enumerate(item):
                 if self.get_neighbours((y, x)) == 3:
-                    self.grid[y][x] = 1
+                    self.grid[y][x].make_live()
 
                 elif self.get_neighbours((y, x)) != 2:
-                    self.grid[y][x] = 0
+                    self.grid[y][x].make_dead()
 
         count = 0
         for i in self.grid:
             for j in i:
-                if j == 1:
+                if j.is_alive():
                     count += 1
 
         self.generation += 1
@@ -83,15 +88,13 @@ class GameOfLife:
     def draw_grid(self):
         for i, item in enumerate(self.grid):
             for j, jtem in enumerate(item):
-                if jtem:
-                    pygame.draw.rect(self.screen, (255, 0, 0),
-                                     (j * self.cell_size, i * self.cell_size, self.cell_size, self.cell_size))
+                if jtem.is_alive():
+                    jtem.draw()
 
     def run(self) -> None:
         pygame.init()
         clock = pygame.time.Clock()
         pygame.display.set_caption('Game of Life')
-        self.create_grid()
         running = True
 
         while running:
@@ -113,14 +116,13 @@ class GameOfLife:
                                     if event.key == K_SPACE:
                                         stop = True
 
+                            self.draw_grid()
+                            self.click()
+
             self.get_next_generation()
             self.draw_lines()
             self.draw_grid()
+            self.click()
             pygame.display.flip()
             clock.tick(self.speed)
         pygame.quit()
-
-
-if __name__ == '__main__':
-    game = GameOfLife(1368, 762, 10, speed=10)
-    game.run()
