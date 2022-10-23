@@ -116,9 +116,6 @@ class GameOfLife:
                                     if event.key == K_SPACE:
                                         stop = True
 
-                            self.draw_grid()
-                            self.click()
-
             self.get_next_generation()
             self.draw_lines()
             self.draw_grid()
