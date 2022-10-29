@@ -12,7 +12,10 @@ class Cell:
         self.rect = pygame.Rect(*coord, size, size)
 
     def draw(self) -> None:
-        pygame.draw.rect(self.surface, (255, 0, 0), self.rect)
+        pygame.draw.rect(self.surface, (190, 100, 100), self.rect)
+
+    def draw_dead(self):
+        pygame.draw.rect(self.surface, (0, 0, 0), self.rect)
 
     def is_alive(self) -> bool:
         return self.life
@@ -27,10 +30,12 @@ class Cell:
         if self.rect.bottomleft[0] < mouse[0] < self.rect.bottomright[0] and self.rect.bottomleft[1] > mouse[1] > \
                 self.rect.topleft[1]:
             if click[0]:
-                self.life = False if self.life else True
+                self.life = True
+            if click[2]:
+                self.life = False
 
     def random_life(self):
-        life = choice((False, False, False, False, False, False, False, False, True))
+        life = choice((False, False, False, False, False, False, True))
         return life
 
     def get_copy(self):
