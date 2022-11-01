@@ -1,10 +1,14 @@
-from GameOfLife import GameOfLife
+from UI.settings_widget import SettingWidget
+from PyQt5.QtWidgets import QApplication
+import sys
 
 
-def main(screen_w: int = 1368, screen_h: int = 762, cell_size: int = 10, speed: int = 15):
-    game = GameOfLife(width=screen_w, height=screen_h, cell_size=cell_size, speed=speed)
-    game.run()
+def main():
+    app = QApplication(sys.argv)
+    widget = SettingWidget()
+    widget.show()
+    sys.exit(app.exec())
 
 
 if __name__ == '__main__':
-    main(1368, 768, 25, 120)
+    main()

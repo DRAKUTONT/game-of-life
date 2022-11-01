@@ -4,18 +4,22 @@ from typing import Union
 
 
 class Cell:
-    def __init__(self, surface, coord: tuple[int, int], life: Union[str, bool], size: int = 10):
+    def __init__(self, surface, coord: tuple[int, int], life: Union[str, bool], size: int = 10,
+                 cell_color: tuple = (190, 100, 100), field_color: tuple = (0, 0, 0)):
         self.surface = surface
         self.coord = coord
         self.life = life if isinstance(life, bool) else self.random_life()
         self.size = size
         self.rect = pygame.Rect(*coord, size, size)
 
+        self.cell_color = cell_color
+        self.field_color = field_color
+
     def draw(self) -> None:
-        pygame.draw.rect(self.surface, (190, 100, 100), self.rect)
+        pygame.draw.rect(self.surface, self.cell_color, self.rect)
 
     def draw_dead(self):
-        pygame.draw.rect(self.surface, (0, 0, 0), self.rect)
+        pygame.draw.rect(self.surface, self.field_color, self.rect)
 
     def is_alive(self) -> bool:
         return self.life
