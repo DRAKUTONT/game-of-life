@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>663</width>
+    <height>677</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>641</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; background-color:#ffffff;&quot;&gt;Жизнь&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; background-color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111;&quot;&gt;Игра Жизнь- это клеточный автомат созданный в 1970 году Джоном Конвеем&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;Это не совсем игра, а просто симуляция клеток по определенным правилам.От игрока лишь требуется размещать эти клетки.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans,sans-serif'; font-size:14pt; font-weight:496; color:#111111; background-color:#ffffff;&quot;&gt;Правила&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;Клетка - она может быть либо живой (темной), либо мертвой (белой).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;У клетки есть 8 соседей вокруг и могут влиять на нее.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;Если клетка мертва и у нее есть 3 живых соседа, тогда она рождается.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;Если клетка жива и у нее есть 2 или 3 соседа, то она остается живой.В противном случае умирает от перенаселения или одиночества&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; font-weight:600; color:#111111; background-color:#ffffff;&quot;&gt;Управление&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;LMB - оживить клетку&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;RMB - убить клетку&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:24px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ffffff;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system,BlinkMacSystemFont,Arial,sans-serif'; font-size:14pt; color:#111111; background-color:#ffffff;&quot;&gt;Space - остановка времени&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="back_btn">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;- Назад</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
