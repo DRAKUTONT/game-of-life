@@ -38,9 +38,7 @@ class Cell:
             if click[2]:
                 self.life = False
 
-    def random_life(self):
+    @staticmethod
+    def random_life():
         life = choice((False, False, False, False, False, False, True))
         return life
-
-    def get_copy(self):
-        return Cell(self.surface, self.coord, self.life, self.size)
